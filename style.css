@@ -1,0 +1,38 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000; /* Set the background to black */
+}
+
+#scene-container {
+    width: 100%;
+    height: calc(100% - 120px); /* Adjust height considering header and footer */
+    background-color: #000; /* Black background for the scene */
+    border: 5px solid #fff; /* 5px white border */
+    margin-top: 60px; /* Space for the header */
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background-color: #000; /* Black background for the header */
+    color: #fff; /* White text color */
+    font-family: 'Arial', sans-serif; /* Change as per your font style preference */
+    font-size: 24px; /* Example font size */
+    border-bottom: 5px solid #fff; /* 5px border for the header */
+    position: fixed; /* Fixed at the top */
+    width: 100%;
+    top: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    position: fixed; /* Fixed at the bottom */
+    width: 100%;
+    bottom: 0;
+}
+
+/* Additional styling for color options and other elements as needed */
