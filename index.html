@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,15 +11,15 @@
         <a-assets>
             <img id="groundTexture" src="PATH_TO_YOUR_GROUND_IMAGE">
             <img id="sphereTexture" src="PATH_TO_YOUR_SPHERE_TEXTURE">
-            <img id="cylinderTexture" src="PATH_TO_YOUR_CYLINDER_TEXTUR">
-            <img id="skyTexture" src="https://github.com/jendoe0110/gen/blob/main/SKY.PNG">
+            <img id="cylinderTexture" src="PATH_TO_YOUR_CYLINDER_TEXTURE">
+            <img id="skyTexture" src="sky.png">
         </a-assets>
 
         <!-- Ground using a plane -->
         <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="#groundTexture"></a-plane>
 
-        <!-- Sky background -->
-        <a-sky color="#6EBAA7"></a-sky>
+        <!-- Sky background with texture -->
+        <a-sky src="#skyTexture"></a-sky>
 
         <!-- Interactive Sphere with texture -->
         <a-sphere position="0 1.25 -5" radius="1.25" src="#sphereTexture" id="interactiveSphere"></a-sphere>
@@ -59,3 +58,4 @@
     </a-scene>
 </body>
 </html>
+
