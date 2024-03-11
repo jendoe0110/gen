@@ -45,15 +45,6 @@
                 if (newY > 5) newY = 1; // Resets to a lower position if it goes too high
                 this.setAttribute('position', {x: currentPosition.x, y: newY, z: currentPosition.z});
             });
-
-            function getRandomColor() {
-                var letters = '0123456789ABCDEF';
-                var color = '#';
-                for (var i = 0; i < 6; i++ ) {
-                    color += letters[Math.floor(random() * 16)];
-                }
-                return color;
-            }
         </script>
     </a-scene>
 </body>
