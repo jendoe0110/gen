@@ -1,38 +1,60 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventures in AR</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-        canvas {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        header, footer {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            text-align: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            font-size: 24px;
-        }
-        footer {
-            bottom: 10px;
-        }
-    </style>
+    <meta charset="utf-8">
+    <title>Simple VR Application</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
-    <header>Adventures in AR</header>
-    <canvas id="myCanvas"></canvas>
-    <footer>Your Name &copy;</footer>
-    <script type="module" src="main.js"></script>
+    <a-scene>
+        <!-- Assets management -->
+        <a-assets>
+            <img id="groundTexture" src="PATH_TO_YOUR_GROUND_IMAGE">
+            <img id="sphereTexture" src="PATH_TO_YOUR_SPHERE_TEXTURE">
+            <img id="cylinderTexture" src="PATH_TO_YOUR_CYLINDER_TEXTURE">
+        </a-assets>
+
+        <!-- Ground using a plane -->
+        <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="100" src="#groundTexture"></a-plane>
+
+        <!-- Sky background -->
+        <a-sky color="#6EBAA7"></a-sky>
+
+        <!-- Interactive Sphere with texture -->
+        <a-sphere position="0 1.25 -5" radius="1.25" src="#sphereTexture" id="interactiveSphere"></a-sphere>
+
+        <!-- Interactive Cylinder with texture -->
+        <a-cylinder position="5 0.75 -3" radius="0.5" height="1.5" src="#cylinderTexture" id="interactiveCylinder"></a-cylinder>
+
+        <!-- Scripts for interaction -->
+        <script>
+            document.querySelector('#interactiveSphere').addEventListener('click', function () {
+                // Assume you want to change the texture upon clicking the sphere
+                this.setAttribute('src', 'PATH_TO_NEW_SPHERE_TEXTURE');
+            });
+
+            document.querySelector('#interactiveCylinder').addEventListener('click', function () {
+                // For continuous rotation, texture change not demonstrated but can be done similarly
+                this.setAttribute('animation', 'property: rotation; to: 0 360 0; loop: true; dur: 1000');
+            });
+
+            document.querySelector('#interactiveSphere').addEventListener('click', function () {
+                let currentPosition = this.getAttribute('position');
+                let newY = currentPosition.y + 1; // Changes position along the y-axis
+                if (newY > 5) newY = 1; // Resets to a lower position if it goes too high
+                this.setAttribute('position', {x: currentPosition.x, y: newY, z: currentPosition.z});
+            });
+
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++ ) {
+                    color += letters[Math.floor(random() * 16)];
+                }
+                return color;
+            }
+        </script>
+    </a-scene>
 </body>
 </html>
