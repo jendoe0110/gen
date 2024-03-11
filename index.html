@@ -3,7 +3,6 @@
 <head>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
-<div id="3d-container" style="width: 800px; height: 600px;"></div>
  <script>
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -16,11 +15,6 @@
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
   });
-
-  // Add some light
-  const ambientLight = new THREE.AmbientLight(0x404040);
-  scene.add(ambientLight);
-
   // GLTF Loader to load the .glb file
   const loader = new THREE.GLTFLoader();
   loader.load(
